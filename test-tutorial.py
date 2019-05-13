@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import re
 from logging import basicConfig, getLogger, DEBUG
 basicConfig(level=DEBUG)
 logger = getLogger(__name__)
@@ -14,7 +15,7 @@ except:
 
 logger.debug(repr(res))
 
-if res != "Hello World!\n":
+if re.match(res, r"^Hello World! s\d{5}\n$"):
 
     logger.error("出力された文字列が一致しません: " + repr(res))
     sys.exit(1)

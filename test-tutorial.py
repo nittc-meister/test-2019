@@ -5,12 +5,6 @@ basicConfig(level=DEBUG)
 logger = getLogger(__name__)
 logger.debug('hello')
 
-branch = subprocess.check_output(["git", "symbolic-ref", "--short",
-                                  "HEAD"]).decode("utf-8")
-
-if branch == "master\n":
-    sys.exit(0)
-
 try:
     res = subprocess.check_output(["python",
                                    "./hello-world.py"]).decode("utf-8")
